@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Processor</title>
+    <!-- Link to external CSS file inside src -->
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+  <body>
+
+<div class="container">
+    <h1>Document Processor</h1>
+
+    <form id="upload-form">
+        <label for="target-filename">Select Document to Process:</label>
+        <select id="target-filename" name="target_filename" required>
+            <option value="" disabled selected>-- Select --</option>
+            <option value="Easy - 1.pdf">Easy - 1.pdf</option>
+            <option value="Easy - 2.pdf">Easy - 2.pdf</option>
+            <option value="Easy - 3.pdf">Easy - 3.pdf</option>
+            <option value="Medium - 1.pdf">Medium - 1.pdf</option>
+            <option value="Medium - 2.pdf">Medium - 2.pdf</option>
+            <option value="Medium - 3.pdf">Medium - 3.pdf</option>
+            <option value="Hard - 1.pdf">Hard - 1.pdf</option>
+            <option value="Hard - 2.pdf">Hard - 2.pdf</option>
+            <option value="Hard - 3.pdf">Hard - 3.pdf</option>
+        </select>
+        <br><br>
+        <button type="submit">Process Document</button>
+    </form>
+
+    <div id="loading-spinner" class="spinner"></div>
+    <div id="error-message" class="error"></div>
+
+    <div id="results-section" style="display: none;">
+        <h2>Extracted Items & Matches</h2>
+        <form id="confirm-form">
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Extracted Line Item</th>
+                        <th>Suggested Match (Select to Confirm/Change)</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body">
+                    <!-- Results will be populated here by script.js -->
+                </tbody>
+            </table>
+            <br>
+            <button type="submit">Confirm Matches</button> <!-- Changed label slightly -->
+        </form>
+    </div>
+
+    <hr>
+
+    <h2>Stored Matches</h2>
+    <button id="view-matches-btn" type="button">View Stored Matches</button>
+    <div id="stored-matches-error" class="error"></div>
+    <div id="stored-matches-container" style="margin-top: 15px;">
+         <table class="stored-matches-table">
+             <thead>
+                 <tr>
+                     <th>ID</th>
+                     <th>Document Name</th>
+                     <th>Extracted Item (Desc)</th>
+                     <th>Extracted Item (Amt)</th>
+                     <th>Confirmed Match</th>
+                     <th>Confirmed At</th>
+                 </tr>
+             </thead>
+             <tbody id="stored-matches-body">
+                 <!-- Stored matches will be populated here by script.js -->
+             </tbody>
+         </table>
+    </div>
+
+</div>
+
+<!-- Link to external JavaScript file inside src -->
+<script src="src/script.js" defer></script>
+
+  </body>
+</html>

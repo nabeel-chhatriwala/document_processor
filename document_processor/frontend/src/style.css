@@ -1,0 +1,215 @@
+/* Basic Reset & Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+h2 {
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+/* Forms */
+form {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+select {
+     appearance: none; /* Remove default arrow */
+     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+     background-repeat: no-repeat;
+     background-position: right 1rem center;
+     background-size: 0.65em auto;
+     padding-right: 2.5em; /* Make space for arrow */
+}
+
+/* Buttons */
+button {
+    display: inline-block;
+    background-color: #3498db; /* Primary button color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    margin-right: 10px; /* Spacing between buttons */
+}
+button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+button[type="submit"] {
+    background-color: #2ecc71; /* Green for primary actions */
+}
+button[type="submit"]:hover {
+    background-color: #27ae60;
+}
+#view-matches-btn {
+     background-color: #95a5a6; /* Neutral color */
+}
+#view-matches-btn:hover {
+     background-color: #7f8c8d;
+}
+/* Specific button styles */
+.search-container button {
+    padding: 8px 15px; /* Slightly smaller search buttons */
+    font-size: 0.9rem;
+}
+
+/* Tables */
+.results-table, .stored-matches-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.results-table th, .results-table td,
+.stored-matches-table th, .stored-matches-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle; /* Align text vertically */
+}
+.results-table th, .stored-matches-table th {
+    background-color: #ecf0f1; /* Lighter header */
+    font-weight: 600;
+    color: #34495e;
+}
+.results-table tbody tr:nth-child(even),
+.stored-matches-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping */
+}
+.results-table tbody tr:hover,
+.stored-matches-table tbody tr:hover {
+    background-color: #f1f1f1; /* Hover effect */
+}
+
+/* Feedback Elements */
+.spinner {
+    border: 4px solid #ecf0f1;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    display: none; 
+    margin: 20px auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.error {
+    color: #e74c3c; /* Red for errors */
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fadbd8;
+    border: 1px solid #f1aeb5;
+    border-radius: 4px;
+    font-weight: 500;
+}
+/* Hide error divs when they are empty */
+.error:empty {
+    display: none;
+}
+
+/* Container for stored matches table */
+#stored-matches-container {
+    max-height: 400px; /* Adjust this value as needed */
+    overflow-y: auto; /* Add vertical scrollbar if content exceeds max-height */
+    border: 1px solid #e0e0e0; /* Optional: Add border around scrollable area */
+    border-radius: 4px; /* Optional: Match other styles */
+}
+
+/* Search Specific Styles */
+.search-container {
+    margin-top: 5px;
+    position: relative; 
+    display: flex; /* Align input and buttons */
+    align-items: center;
+}
+.search-input {
+    flex-grow: 1; /* Input takes available space */
+    margin-bottom: 0; /* Remove bottom margin in flex container */
+}
+.search-results {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute; 
+    background-color: white;
+    width: 100%; /* Full width */
+    top: 100%; /* Position below the input container */
+    left: 0;
+    z-index: 10;
+    display: none; 
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.search-results li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+ .search-results li:last-child {
+    border-bottom: none;
+ }
+.search-results li:hover {
+    background-color: #f0f0f0;
+}
+.hidden {
+    display: none !important; /* Use important to override potential conflicts */
+}
+
+/* Utility */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 30px 0;
+} 

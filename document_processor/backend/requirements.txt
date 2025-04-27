@@ -1,0 +1,6 @@
+Flask
+requests
+pandas
+Flask-CORS
+psycopg2-binary
+rapidfuzz 
